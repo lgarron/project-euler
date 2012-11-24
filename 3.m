@@ -1,1 +1,1 @@
-Print[FactorInteger[600851475143]]
+Print[FactorInteger[600851475143][[-1, 1]]]
