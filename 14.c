@@ -1,4 +1,7 @@
 #include <stdio.h>
+#include <limits.h>
+
+#define OVERFLOW_MAX (LONG_MAX)
 
 #define MAX (1000000)
 #define MEMO_LIMIT (10*MAX)
@@ -10,6 +13,9 @@ long collatz_length(long n) {
   }
   if (n < MEMO_LIMIT && memo[n] != 0) {
     return memo[n];
+  }
+  if (n % 2 == 0 && n > (OVERFLOW_MAX-1)/3) {
+    fprintf(stderr, "Overflow detected! Value: %ld > (%ld-1)/3\n", n, OVERFLOW_MAX);
   }
   long next = (n % 2 == 0) ? n/2 : 3*n+1;
   long value = 1 + collatz_length(next);
