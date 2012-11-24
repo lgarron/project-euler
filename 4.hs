@@ -1,4 +1,4 @@
-import Data.Digits
+import Data.Digits -- cabal install digits
 import Data.List
 
 num3 :: [Integer]
