@@ -8,6 +8,12 @@
 
   In case you're worried that it's not safe to use {0, 1}: I actually calculated {3, 40}
   and used that first. {0, 1} works, though.
+
+  Also note that Sum[4 x^2 + x + 1, {x, 1, y}] gives
+
+  1/6 (13 n + 15 n^2 + 8 n^3)
+
+  as the general formula of the sum.
 *)
 
 result = 1 + 4*Sum[4 x^2 + x + 1, {x, 1, 500}];
