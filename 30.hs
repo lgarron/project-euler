@@ -9,7 +9,7 @@ import Data.Digits (digits) -- cabal install digits
 isDigitPowerSum :: Integer -> Integer -> Bool
 isDigitPowerSum k n = (sum $ map (^ k) $ digits 10 n) == n
 
---result :: Integer
+result :: Integer
 result = sum [n | n<-[2..10^6], isDigitPowerSum 5 n]
 
 -- Output

@@ -7,7 +7,7 @@ import Data.List (nub, permutations, union)
 
 -- Code
 
--- The following can be added before the list comprehensino to track progress:
+-- The following can be added before the list comprehension to track progress:
 --   trace (show permutation) 
 -- (It needs import Debug.Trace)
 
