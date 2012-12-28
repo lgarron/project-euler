@@ -4,18 +4,20 @@
 
 import Data.Digits (digits, unDigits) -- cabal install digits
 import Data.List (inits, sort, tail)
+import Data.Maybe (listToMaybe, mapMaybe)
 
 -- Code
 
 pandigitalMultiple :: Integer -> Maybe Integer
-pandigitalMultiple n = if (pandigitals == []) then Nothing else Just (unDigits 10 $ head pandigitals) where
+pandigitalMultiple n = listToMaybe pandigitalNumbers where
+  pandigitalNumbers = map (unDigits 10) pandigitals :: [Integer]
   pandigitals = filter ((== [1..9]) . sort) shortEnoughConcats :: [[Integer]]
   shortEnoughConcats = takeWhile ((<10) . length) multipleConcats :: [[Integer]]
   multipleConcats = map concat $ tail . inits $ multiples :: [[Integer]]
   multiples = map (digits 10 . (*n)) [1..] :: [[Integer]]
 
 result :: Integer
-result = maximum [n | Just n <-(map pandigitalMultiple [1..9999])]
+result = maximum $ mapMaybe pandigitalMultiple [1..9999]
 
 -- Output
 
