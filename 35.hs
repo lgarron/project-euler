@@ -19,7 +19,7 @@ isCircularPrime :: Integer -> Bool
 isCircularPrime = and . (map isPrime) . digitRotations
 
 result :: Integer
-result = genericLength [n | n<-(takeWhile (<10^6) primes), isCircularPrime n]
+result = genericLength $ filter isCircularPrime $ takeWhile (<10^6) primes
 
 -- Output
 
