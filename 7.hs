@@ -2,7 +2,7 @@
 -- Lucas Garron
 -- Date: November 23, 2012
 
-import Data.Numbers.Primes -- cabal install primes
+import Data.Numbers.Primes (primes) -- cabal install primes
 
 -- Code
 
