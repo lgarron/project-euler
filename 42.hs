@@ -42,4 +42,4 @@ result input = genericLength $ filter isTriangular words where
 -- Output
 
 main :: IO ()
-main = readFile "42-words.txt" >>= print . result
+main = readFile "input/42-words.txt" >>= print . result
