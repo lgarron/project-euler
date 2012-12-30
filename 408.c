@@ -2,7 +2,7 @@
  * Lucas Garron
  * Date: December 30, 2012
  *
- * Running time: 9s
+ * Running time: 5s
  */
 
 #include <assert.h>
@@ -87,21 +87,24 @@ struct point {
   int x;
   int y;
   int num_admissible_paths_to;
+  struct point* mirror;
 };
 
-struct point origin = {0, 0, 0};
+struct point origin = {0, 0, 0, NULL};
 
 struct point inadmissiblePoints[MAX_INADMISSIBLE];
 int num_inadmissible_points = 0;
 
-void addInadmissiblePoint(int xIn, int yIn) {
+struct point* addInadmissiblePoint(int xIn, int yIn) {
   assert(num_inadmissible_points < MAX_INADMISSIBLE);
   //printf("Adding (%d, %d).\n", xIn, yIn);
   struct point* pt = &inadmissiblePoints[num_inadmissible_points];
   pt->x = xIn;
   pt->y = yIn;
   pt->num_admissible_paths_to = 0;
+  pt->mirror = NULL;
   num_inadmissible_points++;
+  return pt;
 }
 
 void initInadmissiblePoints() {
@@ -123,8 +126,9 @@ void initInadmissiblePoints() {
         if (coord1 > LIMIT || coord2 > LIMIT) {
           break;
         }
-        addInadmissiblePoint(coord1, coord2);
-        addInadmissiblePoint(coord2, coord1);
+        struct point* p1 = addInadmissiblePoint(coord1, coord2);
+        struct point* p2 = addInadmissiblePoint(coord2, coord1);
+        p2->mirror = p1;
         k++;
       }
     }
@@ -152,6 +156,10 @@ int numAdmissiblePathsToMod(struct point *to) {
     return to->num_admissible_paths_to;
   }
 
+  if (to->mirror != NULL) {
+    return numAdmissiblePathsToMod(to->mirror);
+  }
+
   int num = numPathsBetweenMod(&origin, to);
   //printf ("(%d, %d) start: %d\n", to->x, to->y, num);
   int i;
@@ -175,7 +183,7 @@ int main() {
   initBinomialMod();
   initInadmissiblePoints();
 
-  struct point to = {10000000, 10000000, 0};
+  struct point to = {10000000, 10000000, 0, NULL};
   int result = numAdmissiblePathsToMod(&to);
 
   printf("%d\n", result);
