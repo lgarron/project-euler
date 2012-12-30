@@ -1,18 +1,17 @@
-problemMax :: Integer
-problemMax = 4*10^6
+-- Project Euler, Problem #2
+-- Lucas Garron
+-- Date: November 23, 2012
+
+-- Code
 
 -- A classic
 fib :: [Integer]
 fib = 0 : 1 : zipWith (+) fib (tail fib)
 
-lowFib :: [Integer]
-lowFib = takeWhile (< problemMax) fib
-
-evenFib :: [Integer]
-evenFib = filter even lowFib
-
 result :: Integer
-result = sum evenFib
+result = sum $ filter even $ takeWhile (< 4*10^6) fib
+
+-- Output
 
 main :: IO ()
-main = do print result
+main = print result
