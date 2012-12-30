@@ -2,13 +2,14 @@ import Data.List
 import Data.Numbers.Primes -- cabal install primes
 
 triangularNumber :: Integer -> Integer
-triangularNumber n = sum [1..n]
+triangularNumber n = n*(n-1) `div` 2
 
-numDivisors :: Integer -> Integer
-numDivisors n = product $ map ((+1) . genericLength) (group $ primeFactors n)
+numDivisorsT :: Integer -> Integer
+numDivisorsT n = product $ map ((+1) . genericLength) (group $ factors) where
+  factors = tail . sort . concat $ map primeFactors [n, n-1]
 
 result :: Integer
-result = triangularNumber . head $ filter ((>500) . numDivisors . triangularNumber) [1..]
+result = triangularNumber . head $ filter ((>500) . numDivisorsT) [1..]
 
 main :: IO ()
 main = do print result
