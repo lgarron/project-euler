@@ -1,20 +1,24 @@
-import Data.Digits -- cabal install digits
-import Data.List
+-- Project Euler, Problem #4
+-- Lucas Garron
+-- Date: November 23, 2012
 
-num3 :: [Integer]
-num3 = [100..999]
+import Data.Digits (digits) -- cabal install digits
+import Data.List (sort)
+
+-- Code
 
 products :: [Integer]
-products = [x*y | x<-num3, y<-num3]
+products = [x*y | x<-num3, y<-num3] where
+  num3 = [100..999]
 
 palindromic :: Eq a => [a] -> Bool
 palindromic list = (reverse list == list)
 
-palindromes :: [Integer]
-palindromes = filter (palindromic . (digits 10)) products
 
 result :: Integer
-result = last $ sort palindromes
+result = maximum $ filter (palindromic . digits 10) products
+
+-- Output
 
 main :: IO ()
-main = do print result
+main = print result
