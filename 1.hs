@@ -1,14 +1,16 @@
-import Data.List
+-- Project Euler, Problem #1
+-- Lucas Garron
+-- Date: November 23, 2012
 
-pLimit :: Integer
-pLimit = 1000-1 -- *less than* 1000
+-- Code
 
-multiples :: [Integer]
---multiples = [x | x<-[1..999], mod x 3 == 0 || mod x 5 == 0]
-multiples = union [3, 6..pLimit] [5, 10..pLimit]
+isMultiple :: Integer -> Bool
+isMultiple x = (x `mod` 3 == 0 || x `mod` 5 == 0)
 
 result :: Integer
-result = sum multiples
+result = sum $ filter isMultiple [1..999]
+
+-- Output
 
 main :: IO ()
-main = do print result
+main = print result
