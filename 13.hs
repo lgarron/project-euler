@@ -1,4 +1,10 @@
+-- Project Euler, Problem #13
+-- Lucas Garron
+-- Date: November 23, 2012
+
 import Data.Digits -- cabal install digits
+
+-- Code
 
 numbers :: [Integer]
 numbers = [37107287533902102798797998220837590246510135740250,
@@ -105,5 +111,7 @@ numbers = [37107287533902102798797998220837590246510135740250,
 result :: Integer
 result = unDigits 10 $ take 10 $ digits 10 (sum numbers)
 
+-- Output
+
 main :: IO ()
-main = do print result
+main = print result

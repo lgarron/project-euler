@@ -31,7 +31,7 @@ int primeRun(int a, int b) {
   return n;
 }
 
-int main() {
+int result() {
 
   primeQ = sieve(SIEVE_SIZE);
 
@@ -49,9 +49,14 @@ int main() {
     }
   }
 
-  printf("%d\n", bestCoefficientProduct);
-
   free(primeQ);
 
+  return bestCoefficientProduct;
+}
+
+int main() {
+
+  printf("%d\n", result());
+  
   return 0;
 }

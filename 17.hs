@@ -1,3 +1,9 @@
+-- Project Euler, Problem #17
+-- Lucas Garron
+-- Date: November 23, 2012
+
+-- Code
+
 import Data.List
 import Data.Char
 import Data.Digits -- cabal install digits
@@ -20,5 +26,7 @@ numLetters = genericLength . (filter isLetter . spell)
 result :: Integer
 result = sum $ map numLetters [1..1000]
 
+-- Output
+
 main :: IO ()
-main = do print result
+main = print result

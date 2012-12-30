@@ -10,4 +10,4 @@ result = 1 + 4 * sum [4 * x^2 + x + 1 | x <-[1..500]]
 -- Output
 
 main :: IO ()
-main = do print result
+main = print result

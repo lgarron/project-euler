@@ -2,6 +2,8 @@
 (* Lucas Garron *)
 (* Date: December 26, 2012 *)
 
+(* Code *)
+
 (* Formula for the average value at each level found by interpolating values:
 
   Fit[{{0, 1}, {1, 6}, {2, 19}}, {1, x, x^2}, x];
@@ -17,5 +19,7 @@
 *)
 
 result = 1 + 4*Sum[4 x^2 + x + 1, {x, 1, 500}];
+
+(* Output *)
 
 Print[result];

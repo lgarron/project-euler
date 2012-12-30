@@ -20,4 +20,4 @@ result = maximumBy (comparing cycleLength) [1..999]
 -- Output
 
 main :: IO ()
-main = do print result
+main = print result

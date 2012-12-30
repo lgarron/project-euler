@@ -186,15 +186,18 @@ int numAdmissiblePathsToMod(struct point *to) {
   return num;
 }
 
-int main() {
+int result() {
 
   initBinomialMod();
   initInadmissiblePoints();
 
   struct point to = {10000000, 10000000, 0, 0, NULL};
-  int result = numAdmissiblePathsToMod(&to);
+  return numAdmissiblePathsToMod(&to);
+}
 
-  printf("%d\n", result);
+int main() {
 
+  printf("%d\n", result());
+  
   return 0;
 }

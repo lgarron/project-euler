@@ -15,4 +15,4 @@ result = sum [n | n<-[2..10^6], isDigitPowerSum 5 n]
 -- Output
 
 main :: IO ()
-main = do print result
+main = print result

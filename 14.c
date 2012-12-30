@@ -1,3 +1,8 @@
+/* Project Euler, Problem #408
+ * Lucas Garron
+ * Date: November 23, 2012
+ */
+
 #include <stdio.h>
 #include <limits.h>
 
@@ -25,7 +30,7 @@ long collatz_length(long n) {
   return value;
 }
 
-int main(int argc, char* argv[]) {
+int result() {
 
   long i;
   for (i = 0; i < MEMO_LIMIT; i++) {
@@ -44,7 +49,12 @@ int main(int argc, char* argv[]) {
     }
   }
 
-  printf("%ld\n", maxN);
+  return maxN;
+}
 
+int main() {
+
+  printf("%d\n", result());
+  
   return 0;
 }

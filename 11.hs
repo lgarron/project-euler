@@ -1,4 +1,10 @@
+-- Project Euler, Problem #11
+-- Lucas Garron
+-- Date: November 23, 2012
+
 import Data.List
+
+-- Code
 
 arr :: [[Integer]]
 arr = [[08, 02, 22, 97, 38, 15, 00, 40, 00, 75, 04, 05, 07, 78, 52, 12, 50, 77, 91, 08],
@@ -45,5 +51,7 @@ max4 = maximum . map product . concatMap (subseqLength 4)
 result :: Integer
 result = maximum $ map max4 [arr, transpose arr, diagonals arr, diagonals $ reverse arr]
 
+-- Output
+
 main :: IO ()
-main = do print result
+main = print result

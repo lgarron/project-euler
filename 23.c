@@ -1,3 +1,8 @@
+/* Project Euler, Problem #23
+ * Lucas Garron
+ * Date: December 23, 2012
+ */
+
 #include <stdio.h>
 #include <stdbool.h>
 
@@ -42,7 +47,7 @@ bool abundantQ(long n) {
   return divisorSum(n) > 2*n;
 }
 
-int main(int argc, char* argv[]) {
+int result() {
 
   // Build a cache of which numbers are abundant.
   bool isAbundant[MAX];
@@ -77,7 +82,12 @@ int main(int argc, char* argv[]) {
     }
   }
 
-  printf("%ld\n", total);
+  return total;
+}
 
+int main() {
+
+  printf("%d\n", result());
+  
   return 0;
 }

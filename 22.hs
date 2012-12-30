@@ -29,4 +29,4 @@ result input = sum sortedScores where
 -- Output
 
 main :: IO ()
-main = do readFile "22-names.txt" >>= print . result
+main = readFile "22-names.txt" >>= print . result

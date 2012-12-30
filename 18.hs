@@ -19,4 +19,4 @@ result str = maximum $ foldl1 nextLine $ parseInput str
 -- Output
 
 main :: IO ()
-main = do readFile "18_in.txt" >>= print . result
+main = readFile "18_in.txt" >>= print . result

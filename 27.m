@@ -2,6 +2,8 @@
 (* Lucas Garron *)
 (* Date: December 26, 2012 *)
 
+(* Code *)
+
 PrimeRun[a_Integer, b_Integer] := Module[{n = 0},
   While[
     PrimeQ[n^2 + a n + b],
@@ -22,5 +24,7 @@ Do[
 ]
 
 result = Times @@ maxPair
+
+(* Output *)
 
 Print[result];

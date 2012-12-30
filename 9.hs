@@ -1,3 +1,9 @@
+-- Project Euler, Problem #9
+-- Lucas Garron
+-- Date: November 23, 2012
+
+-- Code
+
 result :: Integer
 result = head [a*b*c |
             a<-[1..1000],
@@ -6,5 +12,7 @@ result = head [a*b*c |
             a^2+b^2==c^2
           ]
 
+-- Output
+
 main :: IO ()
-main = do print result
+main = print result

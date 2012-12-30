@@ -140,7 +140,7 @@ void computeSums(int i, int j) {
   }
 }
 
-int main() {
+int result() {
 
   initPowers();
   initSums();
@@ -174,8 +174,6 @@ int main() {
     }
   }
 
-  printf("%d\n", total);
-
   // Free malloced memory.
   for (i = 0; i < POW_I_2; i++) {
     for (j = 0; j < POW_J_3; j++) {
@@ -186,5 +184,12 @@ int main() {
   }
   free(primeQ);
 
+  return total;
+}
+
+int main() {
+
+  printf("%d\n", result());
+  
   return 0;
 }

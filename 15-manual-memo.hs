@@ -1,4 +1,10 @@
+-- Project Euler, Problem #15
+-- Lucas Garron
+-- Date: November 23, 2012
+
 import Data.List
+
+-- Code
 
 binomial :: (Integer -> Integer -> Integer) -> Integer -> Integer -> Integer
 binomial bRec x 0 = 1
@@ -14,5 +20,7 @@ binomialMemo = [[binomial (idx2 binomialMemo) x y | y <- [0..]] | x <- [0..]]
 result :: Integer
 result = idx2 binomialMemo 40 20
 
+-- Output
+
 main :: IO ()
-main = do print result
+main = print result

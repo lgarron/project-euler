@@ -133,7 +133,7 @@ int largestIdempodent(int n) {
   return 1;
 }
 
-int main(int argc, char* argv[]) {
+int result() {
 
   sieve();
   long sum = 0;
@@ -147,6 +147,12 @@ int main(int argc, char* argv[]) {
     sum += largestIdempodent(i);
   }
 
-  printf("%lu\n", sum);
+  return sum;
+}
+
+int main() {
+
+  printf("%d\n", result());
+  
   return 0;
 }

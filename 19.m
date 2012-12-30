@@ -4,5 +4,11 @@
 
 << Calendar`
 
+(* Code *)
+
 days = DayOfWeek /@ Tuples[{Range[1901, 2000], Range[12], {1}}];
-Print[Count[days, Sunday]];
+result = Count[days, Sunday];
+
+(* Output *)
+
+Print[result];

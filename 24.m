@@ -4,6 +4,10 @@
 
 Quiet[<<Combinatorica`]
 
+(* Code *)
+
 result = FromDigits @ UnrankPermutation[10^6 - 1, Range[0, 9]];
+
+(* Output *)
 
 Print[result];

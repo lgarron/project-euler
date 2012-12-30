@@ -21,7 +21,7 @@ int countTriples (int sum) {
   return num;
 }
 
-int main() {
+int result() {
 
   int best = 0;
   int bestN = 0;
@@ -35,7 +35,12 @@ int main() {
     }
   }
 
-  printf("%d\n", bestN);
+  return bestN;
+}
 
+int main() {
+
+  printf("%d\n", result());
+  
   return 0;
 }

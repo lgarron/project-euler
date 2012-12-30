@@ -2,4 +2,10 @@
 (* Lucas Garron *)
 (* Date: December 23, 2012 *)
 
-Print[Total[IntegerDigits[100!]]]
+(* Code *)
+
+result = Total[IntegerDigits[100!]];
+
+(* Output *)
+
+Print[result];
