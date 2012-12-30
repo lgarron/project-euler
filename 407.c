@@ -1,8 +1,7 @@
-#include <stdbool.h>
-#include <stdio.h>
-#include <string.h>
-
-/*
+/* Project Euler, Problem #407
+ * Lucas Garron
+ * Date: December 25, 2012
+ *
  * This code was in the middle of being rewritten to be "better"
  * when it started to be fast enough to solve the problem.
  * Some of the optimizations (e.g. going by largest factor instead of smallest)
@@ -10,6 +9,12 @@
  * Don't take it as an example of my best work.
  * Running time about 13 minutes for me.
  */
+
+
+#include <assert.h>
+#include <stdbool.h>
+#include <stdio.h>
+#include <string.h>
 
 #define MAX (10000000+1)
 
@@ -29,6 +34,7 @@ int computeLargestFactor(int n) {
     }
     n_left = next_n_left;
   }
+  assert(false);
 }
 
 void sieve() {
@@ -74,7 +80,7 @@ bool primePowerQ(int n) {
  * Returns whether x*y/n is a positive integer.
  * Assumes x, y, n are given as ints < MAX, and n>0.
  */
-productModQ(int x, int y, int n) {
+int productModQ(int x, int y, int n) {
   // printf("productModQ: %d, %d, %d\n", x, y, n);
   if (n==1) {
     return true;
@@ -132,15 +138,10 @@ int main(int argc, char* argv[]) {
   sieve();
   long sum = 0;
 
-  //printf("Larg: %d\n", largestFactor(13*17));
-
-  // largestIdempodent(10);
-  // return 0;
-
   int i;
   for (i=2; i<MAX; i++) {
     if (i % 100000 == 0) {
-      printf ("Evaluating %d\n", i);
+      fprintf(stderr, "Evaluating %d\n", i);
     }
     //printf("- %d: %d\n", i, largestIdempodent(i));
     sum += largestIdempodent(i);
