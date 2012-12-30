@@ -2,7 +2,7 @@
 -- Lucas Garron
 -- Date: December 29, 2012
 
-import Data.Digits (unDigits)
+import Data.Digits (unDigits) -- cabal install digits
 import Data.List (permutations)
 import Data.Numbers.Primes (primes) -- cabal install primes
 import ProjectEuler.Subsequences (subsequencesOfLength)

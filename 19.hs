@@ -2,9 +2,9 @@
 -- Lucas Garron
 -- Date: December 21, 2012
 
-import Data.List -- genericLength
-import Data.Time
-import Data.Time.Calendar.WeekDate
+import Data.List (genericLength)
+import Data.Time (fromGregorian, Day)
+import Data.Time.Calendar.WeekDate (toWeekDate)
 
 -- Code
 

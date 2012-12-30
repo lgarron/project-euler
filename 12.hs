@@ -2,8 +2,8 @@
 -- Lucas Garron
 -- Date: November 23, 2012
 
-import Data.List
-import Data.Numbers.Primes -- cabal install primes
+import Data.List (genericLength, group, sort)
+import Data.Numbers.Primes (primeFactors) -- cabal install primes
 
 -- Code
 

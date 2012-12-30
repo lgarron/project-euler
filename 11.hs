@@ -2,7 +2,7 @@
 -- Lucas Garron
 -- Date: November 23, 2012
 
-import Data.List
+import Data.List (transpose)
 import ProjectEuler.Subsequences (subsequencesOfLength)
 
 -- Code

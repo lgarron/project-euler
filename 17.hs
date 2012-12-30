@@ -6,7 +6,7 @@
 
 import Data.List
 import Data.Char
-import Data.Digits -- cabal install digits
+import Data.Digits (digits) -- cabal install digits
 
 -- Note: This won't spell 0 as "zero".
 spellList :: [Integer] -> [String]

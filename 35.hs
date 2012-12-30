@@ -4,7 +4,7 @@
 
 import Data.Digits (digits, unDigits) -- cabal install digits
 import Data.List (genericLength)
-import Data.Numbers.Primes (isPrime, primes)
+import Data.Numbers.Primes (isPrime, primes) -- cabal install primes
 
 -- Code
 

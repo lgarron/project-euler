@@ -2,7 +2,7 @@
 -- Lucas Garron
 -- Date: December 21, 2012
 
-import Data.List -- genericLength
+import Data.List (genericLength)
 
 -- Code
 

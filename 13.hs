@@ -2,7 +2,7 @@
 -- Lucas Garron
 -- Date: November 23, 2012
 
-import Data.Digits -- cabal install digits
+import Data.Digits (digits, unDigits) -- cabal install digits
 
 -- Code
 

@@ -2,7 +2,7 @@
 -- Lucas Garron
 -- Date: December 20, 2012
 
-import Data.Digits -- cabal install digits
+import Data.Digits (digits) -- cabal install digits
 import qualified Data.MemoCombinators as Memo -- cabal install data-memocombinators
 
 -- Code
