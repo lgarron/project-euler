@@ -12,7 +12,7 @@ function runc () {
   shift
   xd=$(dirname "${FILE%.*}");
   x=$(basename "${FILE%.*}.bin");
-  [ ! "$x" -ot "$FILE" ] || \
+  #[ ! "$x" -ot "$FILE" ] || \ # Comment out to recompile every time (useful if the file includes more files).
   (rm -f "$x";cc -o "$x" "$FILE") && \
   "$xd/$x" $*
 }

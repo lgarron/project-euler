@@ -3,42 +3,65 @@
 #include <stdlib.h>
 #include <string.h>
 
+static int* sieve;
+static bool initialized;
+static int max;
+
+#define ASSERT (true)
+
 /*
  * Written by Lucas Garron on December 26, 2012
  * (For Project Euler problem 333.)
  *
  * Allocates and computes a boolean array
  * with true indicating primality.
- *
- * The aray is zero-indexed, i.e. to check if 7 is prime,
- * check primeQ[7] (don't subtract 1).
- *
+ * 
  * Note that 0 and 1 are not prime.
- *
- * Example use:
-
-  bool* primeQ = sieve(100);
-  // Use the array.
-  free(primeQ);
-
  */
-bool* sieve(int max) {
+void initSieve(int maxIn) {
 
-  bool* primeQ = malloc(max * sizeof(bool));
-  assert(sizeof(bool) == sizeof(char));
-  memset(primeQ, true, max);
+  assert(!initialized);
+  max = maxIn;
 
-  primeQ[0] = false;
-  primeQ[1] = false;
+  sieve = calloc(max, sizeof(int));
 
   int i, j;
   for (i = 2; i*i <= max; i++) {
-    if (primeQ[i]) {
+    if (sieve[i] == 0) {
+      /* We could set sieve[i] = i,
+         but then we'd have to iterate i up to max,
+         which actually does take a bit longer.
+         So we'll keep 0 as a sentinel value. */
       for (j = i*2; j < max; j+=i) {
-        primeQ[j] = false;
+        if (sieve[j] == 0) {
+          sieve[j] = i;
+        }
       }
     }
   }
 
-  return primeQ;
+  initialized = true;
+}
+
+bool isPrime(int n) {
+  if (ASSERT) assert(initialized);
+  if (ASSERT) assert(n < max);
+  if (n < 2) {
+    return false;
+  }
+  return (sieve[n] == 0);
+}
+
+int smallestFactor(int n) {
+  if (ASSERT) assert(initialized);
+  if (ASSERT) assert(n > 1);
+  if (ASSERT) assert(n < max);
+  if (sieve[n] == 0) {
+    return n; 
+  }
+  return sieve[n];
+}
+
+void freeSieve() {
+  free(sieve);
 }

@@ -13,16 +13,6 @@
 #define MAX 999
 #define SIEVE_SIZE 1000000
 
-bool* primeQ; // Will be malloced.
-
-bool isPrime(int n) {
-  if (n<0) {
-    return false;
-  }
-  assert(n < SIEVE_SIZE);
-  return primeQ[n];
-}
-
 int primeRun(int a, int b) {
   int n = 0;
   while (isPrime(n*n + a*n+b)) {
@@ -33,7 +23,7 @@ int primeRun(int a, int b) {
 
 int result() {
 
-  primeQ = sieve(SIEVE_SIZE);
+  initSieve(SIEVE_SIZE);
 
   int best = 0;
   int bestCoefficientProduct = 0;
@@ -49,7 +39,7 @@ int result() {
     }
   }
 
-  free(primeQ);
+  freeSieve();
 
   return bestCoefficientProduct;
 }

@@ -144,7 +144,7 @@ int result() {
 
   initPowers();
   initSums();
-  bool* primeQ = sieve(MAX);
+  initSieve(MAX);
 
   int i, j;
   for (i = 0; i < POW_I_2; i++) {
@@ -169,7 +169,7 @@ int result() {
 
   int total = 0;
   for (k = 0; k < MAX; k++) {
-    if (primeQ[k] && overall[k] == 1) {
+    if (isPrime(k) && overall[k] == 1) {
       total += k;
     }
   }
@@ -182,7 +182,8 @@ int result() {
       }
     }
   }
-  free(primeQ);
+  
+  freeSieve();
 
   return total;
 }
