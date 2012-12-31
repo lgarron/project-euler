@@ -14,7 +14,7 @@ import Data.List (nub, permutations, union)
 products :: [Integer] -> [Integer]
 products permutation = [unDigits 10 c |
   i<-[1..8],
-  j<-[1..9-i], -- can actually be replaced with: let j = 5-i,
+  let j=5-i, -- i and j can't have fewer or more than 5 digits together.
   let (a, rest) = splitAt i permutation,
   let (b, c) = splitAt j rest,
   (unDigits 10 a) * (unDigits 10 b) == (unDigits 10 c)
