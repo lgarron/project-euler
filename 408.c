@@ -87,11 +87,10 @@ struct point {
   int x;
   int y;
   int num_admissible_paths_to; // Memoized calculation.
-  int search_cutoff_sum; // If non-zero, all inadmissible points from now on will have a coordinate sum at least this high.
   struct point* mirror; // Deduplicate calculations for mirrored points (one point of each mirrored pair has the pointer set to the other).
 };
 
-struct point origin = {0, 0, 0, 0, NULL};
+struct point origin = {0, 0, 0, NULL};
 
 struct point inadmissiblePoints[MAX_INADMISSIBLE];
 int num_inadmissible_points = 0;
@@ -103,7 +102,6 @@ struct point* addInadmissiblePoint(int xIn, int yIn) {
   pt->x = xIn;
   pt->y = yIn;
   pt->num_admissible_paths_to = 0;
-  pt->search_cutoff_sum = 0;
   pt->mirror = NULL;
   num_inadmissible_points++;
   return pt;
@@ -130,9 +128,6 @@ void initInadmissiblePoints() {
         }
         struct point* p1 = addInadmissiblePoint(coord1, coord2);
         struct point* p2 = addInadmissiblePoint(coord2, coord1);
-        if (n == 1) {
-          p1->search_cutoff_sum = coord1 + coord2;
-        }
         p2->mirror = p1;
         k++;
       }
@@ -170,9 +165,6 @@ int numAdmissiblePathsToMod(struct point *to) {
   int i;
   for (i = 0; i < num_inadmissible_points; i++) {
     struct point* inadmissible = &inadmissiblePoints[i];
-    if (inadmissible->search_cutoff_sum > to->x + to->y) {
-      break;
-    }
     if (inadmissible->x > to->x || inadmissible->y > to->y || (inadmissible->x == to->x && inadmissible->y == to->y)) {
       continue;
     }
@@ -191,7 +183,7 @@ int result() {
   initBinomialMod();
   initInadmissiblePoints();
 
-  struct point to = {10000000, 10000000, 0, 0, NULL};
+  struct point to = {10000000, 10000000, 0, NULL};
   return numAdmissiblePathsToMod(&to);
 }
 
