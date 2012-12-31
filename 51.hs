@@ -6,6 +6,8 @@ import Data.Digits (digits, unDigits)
 import Data.List (genericLength, nub)
 import Data.Numbers.Primes (isPrime, primes)
 
+import ProjectEuler.Display (displayingIf)
+
 -- Code
 
 replace :: Eq a => a -> a -> [a] -> [a]
@@ -20,7 +22,7 @@ familySize p = maximum $ map genericLength $ map replaceDigit (nub pDigits) wher
   pDigits = digits 10 p :: [Integer]
 
 result :: Integer
-result = head $ filter ((== 8) . familySize) primes
+result = head $ filter ((== 8) . familySize . {-IMPURE-}displayingIf ((> 5) . familySize){-/IMPURE-}) primes
 
 -- Output
 

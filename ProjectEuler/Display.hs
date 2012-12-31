@@ -1,4 +1,4 @@
-module ProjectEuler.Display (display, displaying, displayClause, displayIf) where
+module ProjectEuler.Display (display, displaying, displayClause, displayIf, displayingIf) where
 
 import Data.Maybe (isJust)
 import Debug.Trace (traceShow)
@@ -31,11 +31,12 @@ displayClause x = display x True
 -}
 
 class DisplayIf b where
+  -- TODO: Handle the cases better, write better tests.
   displayIf :: Show a => (a -> b) -> a -> b
-  displayIf f x = traceShowIfTrue' (shouldDisplay value) value where
-    traceShowIfTrue' True = traceShow x
-    traceShowIfTrue' False = id
+  displayIf f x = if (shouldDisplay value) then (display x value) else value where
     value = f x
+  displayingIf :: Show a => (a -> b) -> a -> a
+  displayingIf f x = if (shouldDisplay $ f x) then (displaying x) else x
   shouldDisplay :: b -> Bool
 
 instance DisplayIf Bool where
