@@ -23,8 +23,10 @@ https://projecteuler.net/problems
 
 - Mathematica
   - Calculate an integer, set `result` to it, `Print[result]`.
+  - When defining functions, include types like `_Integer` and `_List` for type safety.
 - Haskell:
   - Include imports, and only import specific functions.
+  - Annotate every free-standing function/expression with a type, as well as any appropriate where clauses.
   - Code section that ends with the calculation of `result :: Integer`.
   - Output section using `main = print result`.
   - If the problem has input: `main = readFile "filename.txt" >>= print . result`.
@@ -34,6 +36,7 @@ https://projecteuler.net/problems
 - C
   - Use static data structures with initalization methods.
   - Have an `int result()` function, only print the result in main.
+  - Free all malloced data.
 
 The idea behind having a consistent variable/function `result` is that the code files could be imported/compiled/linked dynamically in the future. (Not sure how to deal with the two possible types for `result` in Haskell, yet.)
 
