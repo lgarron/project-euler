@@ -21,7 +21,7 @@ intersection = combine triangularNumbers pentagonalNumbers hexagonalNumbers wher
     | a == b && b == c = (a : combine ax bx cx)
     | a <= b && a <= c = combine ax (b:bx) (c:cx)
     | b <= a && b <= c = combine (a:ax) bx (c:cx)
-    | otherwise        = combine (a:ax) (b:bx) cx
+    | c <= a && c <= b = combine (a:ax) (b:bx) cx
 
 result :: Integer
 result = head . tail . tail $ intersection
