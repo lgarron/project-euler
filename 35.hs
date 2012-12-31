@@ -6,7 +6,7 @@ import Data.Digits (digits, unDigits) -- cabal install digits
 import Data.List (genericLength)
 import Data.Numbers.Primes (isPrime, primes) -- cabal install primes
 
-import ProjectEuler.Progress (displayIfTrue)
+import ProjectEuler.Display (displayIf)
 
 -- Code
 
@@ -21,7 +21,7 @@ isCircularPrime :: Integer -> Bool
 isCircularPrime = and . (map isPrime) . digitRotations
 
 result :: Integer
-result = genericLength $ filter ({-IMPURE-}displayIfTrue{-/IMPURE-} isCircularPrime) $ takeWhile (<10^6) primes where
+result = genericLength $ filter ({-IMPURE-}displayIf{-/IMPURE-} isCircularPrime) $ takeWhile (<10^6) primes where
 
 -- Output
 

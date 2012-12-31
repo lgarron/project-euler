@@ -5,7 +5,7 @@
 import Data.Digits (digits, unDigits) -- cabal install digits
 import Data.List (nub, permutations, union)
 
-import ProjectEuler.Progress (displayClause)
+import ProjectEuler.Display (displayClause)
 
 -- Code
 

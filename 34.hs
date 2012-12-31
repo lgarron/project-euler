@@ -4,7 +4,7 @@
 
 import Data.Digits (digits) -- cabal install digits
 
-import ProjectEuler.Progress (displayClause)
+import ProjectEuler.Display (displayClause)
 
 -- Code
 
