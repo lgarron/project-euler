@@ -140,8 +140,8 @@ int result() {
 
   int i;
   for (i=2; i<MAX; i++) {
-    if (i % 100000 == 0) {
-      fprintf(stderr, "Evaluating %d\n", i);
+    if (i % (MAX/10) == 0) {
+      fprintf(stderr, "Evaluating M(%d) out of %d\n", i, MAX);
     }
     //printf("- %d: %d\n", i, largestIdempodent(i));
     sum += largestIdempodent(i);

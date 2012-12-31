@@ -17,7 +17,7 @@ https://projecteuler.net/problems
 - Comments at the top: problem number, name, date, sometimes runtime.
 - Preferably a self-contained, runnable file.
 - Use standard libraries or custom code.
-- Print *only* the integer result. Send (minimal) debug/progress output to `stderr`.
+- Print *only* the integer result. Send (minimal) debug/progress output to `stderr` (e.g. to show progress for slow code, or print out additional info).
 
 ### Specific Languages
 

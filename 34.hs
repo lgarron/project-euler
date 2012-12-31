@@ -4,6 +4,8 @@
 
 import Data.Digits (digits) -- cabal install digits
 
+import ProjectEuler.Progress (displayClause)
+
 -- Code
 
 factorial :: Integer -> Integer
@@ -18,7 +20,7 @@ maxValue :: Integer
 maxValue = head [j | k<-[1..], let j = (k+1) * factorial 9, j < 10^k]
 
 result :: Integer
-result = sum [i | i<-[3..maxValue], curious i]
+result = sum [i | i<-[3..maxValue], curious i, {-IMPURE-}displayClause i{-/IMPURE-}]
 
 -- Output
 

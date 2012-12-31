@@ -166,7 +166,7 @@ int numAdmissiblePathsToMod(struct point *to) {
   }
 
   int num = numPathsBetweenMod(&origin, to);
-  //printf ("(%d, %d) start: %d\n", to->x, to->y, num);
+  //fprintf (stderr, "(%d, %d) start: %d\n", to->x, to->y, num);
   int i;
   for (i = 0; i < num_inadmissible_points; i++) {
     struct point* inadmissible = &inadmissiblePoints[i];

@@ -26,7 +26,8 @@ function runFile {
   FILE="${PROBLEM_NUMBER}.${EXTENSION}"
   if [ -e "${FILE}" ]
   then
-    echo -n "-------- Problem #${PROBLEM_NUMBER} - ${LANGUAGE}: "
+    echo ""
+    echo "[Problem #${PROBLEM_NUMBER} - ${LANGUAGE}]"
     time "${COMMAND}" "${FILE}"
   fi
 }

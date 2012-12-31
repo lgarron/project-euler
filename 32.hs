@@ -5,11 +5,9 @@
 import Data.Digits (digits, unDigits) -- cabal install digits
 import Data.List (nub, permutations, union)
 
--- Code
+import ProjectEuler.Progress (displayClause)
 
--- The following can be added before the list comprehension to track progress:
---   trace (show permutation) 
--- (It needs import Debug.Trace)
+-- Code
 
 products :: [Integer] -> [Integer]
 products permutation = [unDigits 10 c |
@@ -17,7 +15,8 @@ products permutation = [unDigits 10 c |
   let j=5-i, -- i and j can't have fewer or more than 5 digits together.
   let (a, rest) = splitAt i permutation,
   let (b, c) = splitAt j rest,
-  (unDigits 10 a) * (unDigits 10 b) == (unDigits 10 c)
+  (unDigits 10 a) * (unDigits 10 b) == (unDigits 10 c),
+  {-IMPURE-}displayClause (a, b, c){-/IMPURE-}
   ]
 
 result :: Integer
