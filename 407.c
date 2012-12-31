@@ -133,7 +133,7 @@ int largestIdempodent(int n) {
   return 1;
 }
 
-int result() {
+long result() {
 
   sieve();
   long sum = 0;
@@ -152,7 +152,7 @@ int result() {
 
 int main() {
 
-  printf("%d\n", result());
+  printf("%ld\n", result());
   
   return 0;
 }
