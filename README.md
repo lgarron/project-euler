@@ -12,6 +12,31 @@ https://projecteuler.net/problems
   - Mathematica (for fast math)
   - C (for fast code)
 
+### Coding Style
+
+- Comments at the top: problem number, name, date, sometimes runtime.
+- Preferably a self-contained, runnable file.
+- Use standard libraries or custom code.
+- Print *only* the integer result. Send (minimal) debug/progress output to `stderr`.
+
+### Specific Languages
+
+- Mathematica
+  - Calculate an integer, set `result` to it, `Print[result]`.
+- Haskell:
+  - Include imports, and only import specific functions.
+  - Code section that ends with the calculation of `result :: Integer`.
+  - Output section using `main = print result`.
+  - If the problem has input: `main = readFile "filename.txt" >>= print . result`.
+    - This makes `result` a function, but it's still pure.
+    - `result` should probably use an auxiliary `parseInput` function in a `where` clause.
+  - Memoization: use Data.MemoCombinators unless a list is obviously appropriate.
+- C
+  - Use static data structures with initalization methods.
+  - Have an `int result()` function, only print the result in main.
+
+The idea behind having a consistent variable/function `result` is that the code files could be imported/compiled/linked dynamically in the future. (Not sure how to deal with the two possible types for `result` in Haskell, yet.)
+
 ## Disclaimer
 
 I'm putting these up on the internet for a few reasons.  
