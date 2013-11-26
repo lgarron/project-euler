@@ -3,7 +3,7 @@
 # MathematicaScript fix for OSX.
 function ms () {
   REALPATH=$(realpath "${1}") 
-  /Applications/Wolfram/Mathematica.app/Contents/MacOS/MathematicaScript -script "${REALPATH}"
+  /Applications/Mathematica.app/Contents/MacOS/MathematicaScript -script "${REALPATH}"
 }
 
 # Based on https://gist.github.com/1039285
