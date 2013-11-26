@@ -13,12 +13,14 @@ limit = 10^6
 primeSums :: [Integer]
 primeSums = takeWhile (< limit) $ scanl1 (+) primes
 
-partialprimeSums :: Integer -> [(Integer, Integer)]
-partialprimeSums len = filter primeDifference $ zip primeSums (genericDrop len primeSums) where
-  primeDifference (x, y) = isPrime (y-x) && (y-x < limit)
+partialprimeSums :: Integer -> [Integer]
+partialprimeSums len = zipWith (-) (genericDrop len primeSums) primeSums
+
+allowed :: Integer -> Bool
+allowed x = x < limit && isPrime x
 
 result :: Integer
-result = uncurry (flip (-)) $ last $ concat $ map partialprimeSums [1..genericLength primeSums]
+result = last $ filter allowed $ concat $ map partialprimeSums [1..genericLength primeSums]
 
 -- Output
 
