@@ -1,3 +1,7 @@
+# Project Euler, Problem #54
+# Lucas Garron
+# Date: November 26, 2013
+
 from __future__ import print_function
 from collections import Counter
 
