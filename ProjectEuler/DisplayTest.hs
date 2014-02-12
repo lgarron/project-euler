@@ -23,8 +23,8 @@ displayIfBoolTest = head $ filter (displayIf $ (== 17) . length) strings where
   strings = ["displayIfBoolTest", "Testing displayIf"]
 
 displayIfMaybeTest :: String
-displayIfMaybeTest = head $ mapMaybe (displayIf listToMaybe) strings where
-  strings = [["displayIfMaybeTest"], [], ["Testing displayIf"]]
+displayIfMaybeTest = last $ mapMaybe (displayIf listToMaybe) strings where
+  strings = [["Testing displayIf"], [], ["displayIfMaybeTest"]]
 
 main :: IO ()
 main = print [displayTest, displayingTest, displayClauseTest, displayIfBoolTest, displayIfMaybeTest]
