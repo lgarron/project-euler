@@ -6,7 +6,7 @@
 
 (* Input *)
 
-inputFile = FileNameJoin[{"/Users/lgarron/Dropbox/Code/GitHub/project-euler","input","59.txt"}];
+inputFile = FileNameJoin[{DirectoryName[$InputFileName],"input","59.txt"}];
 input = Import[inputFile, "CSV"][[1]];
 
 (* Assumption: Most common character is space (32). *)
