@@ -37,4 +37,5 @@ do
   runFile "C" "runc" "${i}" "c"
   runFile "Haskell" "runghc" "${i}" "hs"
   runFile "Mathematica" "ms" "${i}" "m"
-done    
+  runFile "Julia" "julia" "${i}" "jl"
+done
