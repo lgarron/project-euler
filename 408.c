@@ -183,7 +183,7 @@ int result() {
   initBinomialMod();
   initInadmissiblePoints();
 
-  struct point to = {10000000, 10000000, 0, NULL};
+  struct point to = {LIMIT, LIMIT, 0, NULL};
   return numAdmissiblePathsToMod(&to);
 }
 
