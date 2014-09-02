@@ -1,6 +1,6 @@
 (* Project Euler, Problem #70 *)
 (* Lucas Garron *)
-(* Date: September 01, 2014 *)
+(* Date: September 02, 2014 *)
 
 (* Code *)
 
