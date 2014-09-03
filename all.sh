@@ -38,4 +38,5 @@ do
   runFile "Haskell" "runghc" "${i}" "hs"
   runFile "Mathematica" "ms" "${i}" "m"
   runFile "Julia" "julia" "${i}" "jl"
+  runFile "Python" "python" "${i}" "py"
 done
