@@ -3,7 +3,7 @@
 # Date: September 02, 2014
 
 
-######## Pythagorean Tripet Traversal ########
+######## Pythagorean Triplet Traversal ########
 
 # This works as long as you're looking among
 # Pythagorean triplets under some obvious monotonic limit
