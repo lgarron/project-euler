@@ -4,10 +4,15 @@
  *
  */
 
+#include <assert.h>
 #include <stdio.h>
 
-#define MAX (100000)
 #define MODULUS (1000000)
+
+// MAX can be set to any value safely:
+//   the program will either assert(0) or output the correct answer.
+// If the answer is X, you need MAX > X to find it.
+#define MAX (100000)
 
 // Initialized to 1 followed by zeroes.
 int coefficients[MAX] = {1};
@@ -30,7 +35,7 @@ int result() {
     }
   }
 
-  return -1;
+  assert(0); // No solution less than MAX found.
 }
 
 int main() {
