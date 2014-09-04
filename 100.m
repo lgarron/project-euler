@@ -4,18 +4,12 @@
 
 (* Code *)
 
-bFromA = b /. Solve[2 a (a - 1) == b (b - 1), b][[2]];
-
-v = Module[{b},
-  Reap[Table[
-    If[bFromA \[Element] Integers, Sow[{a, bFromA}], 0],
-    {a, 10000}
-  ]][[-1, -1]]
-];
-
-expr = FindSequenceFunction[#, n] & /@ Transpose[v];
-
-result = Select[Table[expr // RootReduce, {n, 24}], Last[#] > 10^12 &][[1, 1]];
+result = blue /. FindInstance[
+  blue/total*(blue - 1)/(total - 1) == 1/2 &&
+  0 < blue < total > 10^12,
+  {blue, total},
+  Integers
+][[1]];
 
 (* Output *)
 
