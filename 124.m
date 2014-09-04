@@ -4,7 +4,9 @@
 
 (* Code *)
 
-result = SortBy[Range[100000], Times @@ First /@ FactorInteger[#] &][[10000]]
+rad[n_] := Times @@ First /@ FactorInteger[n];
+
+result = SortBy[Range[100000], rad][[10000]];
 
 (* Output *)
 
