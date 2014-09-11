@@ -4,12 +4,9 @@
 
 (* Code *)
 
-result = Binomial[100 + 9, 100] - 1 + (* Increasing, at most 100 digits. Exclude 000...0 *)
-  Sum[
-    (* Decreasing, exactly i digits. Exclude 000...0, 111...1, ..., 999...9*)
-    Binomial[i + 9, i] - 10,
-    {i, 100}
-  ]
+result = Binomial[100 +  9,  9] - 1 + (* Non-decreasing, at most 100 digits, Exclude empty case. *)
+         Binomial[100 + 10, 10] - 1 - (* Non-increasing, at most 100 digits. Exclude empty case. *)
+         10*100 (* Remove over-counted numbers: numbers with certain digit (10 possibilities) repeated a certain number of times (at most 100) *)
 
 (* Output *)
 
