@@ -4,11 +4,9 @@
 
 (* Code *)
 
-AnyIncreasingQ[l_List] := Or @@ (Less @@@ Partition[l, 2, 1]);
-AnyDecreasingQ[l_List] := Or @@ (Greater @@@ Partition[l, 2, 1]);
-BouncyQ[l_Integer] := With[{d = IntegerDigits[l]},
-  AnyIncreasingQ[d] && AnyDecreasingQ[d]
-];
+BouncyQ[l_Integer] := With[{pairs = Partition[IntegerDigits[l], 2, 1]},
+  Or @@ (Less @@@ pairs) && Or @@ (Greater @@@ pairs)
+]
 
 i = 1;
 numBouncy = 0;
