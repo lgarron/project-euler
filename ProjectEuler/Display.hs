@@ -1,7 +1,7 @@
 module ProjectEuler.Display (display, displaying, displayClause, displayIf, displayingIf) where
 
 import Data.Maybe (isJust)
-import Debug.Trace (traceShow)
+import Debug.Trace (traceShow, traceShowId)
 
 {-
   Keep in mind: These functions to not affect lazy evaluation.
@@ -13,11 +13,11 @@ import Debug.Trace (traceShow)
 display :: Show a => a -> b -> b
 display = traceShow
 
-{- 
+{-
   Display the a value, then passes it on.
 -}
 displaying :: Show a => a -> a
-displaying x = display x x
+displaying = traceShowId
 
 {-
   For use as a clause in a list comprehensions, to show what values have been reached.
