@@ -8,9 +8,6 @@ MAX_DEPTH = 18
 valueToDepth = Dict{Rational{Int}, Int}()
 valuesAtDepth = [Set{Rational{Int}}() for i = 1:MAX_DEPTH]
 
-valueToDepth[startingValue] = 1
-push!(valuesAtDepth[1], startingValue)
-
 function record(n, value)
   if !haskey(valueToDepth, value)
     valueToDepth[value] = n
@@ -18,6 +15,8 @@ function record(n, value)
   end
 end
 
+valueToDepth[startingValue] = 1
+push!(valuesAtDepth[1], startingValue)
 total = 1
 
 for n = 2:MAX_DEPTH
@@ -25,21 +24,18 @@ for n = 2:MAX_DEPTH
     for left in valuesAtDepth[i]
       for right in valuesAtDepth[n - i]
         record(n, left + right)
-        record(n,
-          1 // (
-            (1 // left) +
-            (1 // right)
-          )
-        )
+        record(n, 1 // (
+          (1 // left) +
+          (1 // right)
+        ))
       end
     end
   end
-  l = length(valuesAtDepth[n])
-  write(STDERR, "[depth $n] $l\n")
 
+  l = length(valuesAtDepth[n])
   total += l
-  write(STDERR, "[depth $n] Total: $total\n")
-  #print("[depth ", n, "] ", valuesAtDepth[n], "\n")
+  println(STDERR, "[depth $n] $l new values (cumulative total: $total)")
+  # println("[depth $n] $(valuesAtDepth[n])")
 end
 
 print(total)
