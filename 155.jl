@@ -4,12 +4,9 @@
 
 startingValue = 60
 MAX_DEPTH = 18
-IntType = Int
-RationalType = Rational{IntType}
-SetType = Set{RationalType}
 
-valueToDepth = Dict{RationalType, IntType}()
-valuesAtDepth = [Set{Rational{IntType}}() for i = 1:MAX_DEPTH]
+valueToDepth = Dict{Rational{Int}, Int}()
+valuesAtDepth = [Set{Rational{Int}}() for i = 1:MAX_DEPTH]
 
 valueToDepth[startingValue] = 1
 push!(valuesAtDepth[1], startingValue)
