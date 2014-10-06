@@ -14,16 +14,7 @@ valuesAtDepth = [Set{Rational{IntType}}() for i = 1:MAX_DEPTH]
 valueToDepth[startingValue] = 1
 push!(valuesAtDepth[1], startingValue)
 
-function recordParallel(n, left, right)
-  value::RationalType = left + right
-  if !haskey(valueToDepth, value)
-    valueToDepth[value] = n
-    push!(valuesAtDepth[n], value)
-  end
-end
-
-function recordSeries(n, left, right)
-  value::RationalType = 1 // ((1 // left) + (1 // right))
+function record(n, value)
   if !haskey(valueToDepth, value)
     valueToDepth[value] = n
     push!(valuesAtDepth[n], value)
@@ -36,8 +27,13 @@ for n = 2:MAX_DEPTH
   for i::Int = 1:n/2
     for left in valuesAtDepth[i]
       for right in valuesAtDepth[n - i]
-        recordParallel(n, left, right)
-        recordSeries(n, left, right)
+        record(n, left + right)
+        record(n,
+          1 // (
+            (1 // left) +
+            (1 // right)
+          )
+        )
       end
     end
   end
