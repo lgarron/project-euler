@@ -10,7 +10,7 @@ input = Import[inputFile, "CSV"] // First;
 (* Code *)
 
 anagrams = Values[Select[GroupBy[input, Sort@*Characters], Length[#] > 1 &]];
-pairs = Flatten[Subsets[#, {2}] & /@ anagrams, 1];
+pairs = Catenate[Subsets[#, {2}] & /@ anagrams];
 
 ValidSquareDigitsQ[s_] := (s[[1]] != 0 && Sqrt[FromDigits[s]] \[Element] Integers)
 NumberMatchesWord[w_String, n_Integer] := Equal @@ (Sort@*Values@*PositionIndex) /@ {IntegerDigits[n], Characters[w]}
