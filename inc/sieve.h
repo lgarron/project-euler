@@ -7,7 +7,7 @@ static int* sieve;
 static bool initialized;
 static int max;
 
-#define ASSERT (true)
+#define SIEVE_ASSERT (true)
 
 /*
  * Written by Lucas Garron on December 26, 2012
@@ -44,8 +44,8 @@ void initSieve(int maxIn) {
 }
 
 bool isPrime(int n) {
-  if (ASSERT) assert(initialized);
-  if (ASSERT) assert(n < max);
+  if (SIEVE_ASSERT) assert(initialized);
+  if (SIEVE_ASSERT) assert(n < max);
   if (n < 2) {
     return false;
   }
@@ -53,9 +53,9 @@ bool isPrime(int n) {
 }
 
 int smallestFactor(int n) {
-  if (ASSERT) assert(initialized);
-  if (ASSERT) assert(n > 1);
-  if (ASSERT) assert(n < max);
+  if (SIEVE_ASSERT) assert(initialized);
+  if (SIEVE_ASSERT) assert(n > 1);
+  if (SIEVE_ASSERT) assert(n < max);
   if (sieve[n] == 0) {
     return n; 
   }
